@@ -1,9 +1,10 @@
+import MasterLayout from '../MasterLayout/MasterLayout';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>App Component</h1>
+      <MasterLayout/>
     </div>
   );
 }
