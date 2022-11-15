@@ -8,4 +8,24 @@ $lightModeBackground:hsl(0, 0%, 98%);
 $darkTextLightElements:hsl(0, 0%, 100%);
 $homeItemsFontSize:.875rem;
 $detailPageFontSize:1rem;
-$fontFamily:'Nunito Sans',
+$fontFamily:'Nunito Sans';
+
+
+html{
+    font-family:$fontFamily,sans-serif
+}
+
+.bgLight{
+    background-color: $lightModeBackground;
+}
+.textLight{
+    color:$lightModeText;
+}
+
+.bgDark{
+    background-color: $darkModeBackground;
+}
+
+.textDark{
+    color:$darkTextLightElements;
+}

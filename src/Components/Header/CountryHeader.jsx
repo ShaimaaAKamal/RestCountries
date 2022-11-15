@@ -2,18 +2,22 @@ import React from 'react'
 
 export default function CountryHeader() {
   return (
-    <div>
-      <h1 className='fw-bolder'>Where in the world?</h1>
-      <div>
-        <div id='darkMode'>
-        <i class="fa-solid fa-moon"></i>
-        <span>Dark Mode</span>
+     <div className='py-3 shadow-sm bgLight position-fixed w-100'>
+        <div className="container textLight">
+        <div className='d-flex justify-content-between align-items-center'>
+            <h5 className='mb-0'>Where in the world?</h5>
+            <div>
+              <div id='darkMode' className='d-flex align-items-center'>
+              <i class="fa-regular fa-moon me-1"></i>
+              <span>Dark Mode</span>
+              </div>
+              <div id='lightMode' className='d-none d-flex align-items-center'>
+              <i class="fa-solid fa-moon me-1"></i>
+              <span>Dark Mode</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id='lightMode' className='d-none'>
-        <i class="fa-light fa-moon"></i>
-        <span>Dark Mode</span>
-        </div>
-      </div>
-    </div>
+     </div>
   )
 }
