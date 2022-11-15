@@ -30,17 +30,57 @@ html{
     color:$darkTextLightElements;
 }
 
-.info{
-    font-size: $homeItemsFontSize;
-    span:nth-child(2){
-        color:$lightModeInput;
-
-    }
+.header{
+    z-index:12;
 }
 
-.card{
-    img{
-        height:200px !important;
+
+.parent{
+    padding-top:80px;
+
+    .info{
+        font-size: $homeItemsFontSize;
+        span:nth-child(2){
+            color:$lightModeInput;
+        }
     }
+    
+    .card{
+        img{
+            height:200px !important;
+        }
+    }
+
+    .search{
+        width:40%;
+        .input-group-text{
+            background-color: transparent;
+            color:$lightModeInput
+        }
+
+        input{
+            border-left:none;
+            padding-bottom: 13px;
+            &::placeholder{
+                font-size: $homeItemsFontSize;
+                        }
+            &:focus{
+                box-shadow: none;
+                border-color: #CDD4DA;
+            }
+        }
+    }
+
+    .filter{
+        width:25%;
+        font-size: $homeItemsFontSize;
+        &:focus{
+            box-shadow: none;
+            border-color: #CDD4DA;
+
+        }
+
+    }
+    
 }
 

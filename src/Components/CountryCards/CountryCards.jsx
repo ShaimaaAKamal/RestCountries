@@ -13,7 +13,7 @@ export default function CountryCards() {
     getCountries();
   });
   return (
-    <div className='container'>
+    <div className='container  py-5'>
        <div className="row gy-4">
           {
             countries.map((country,index) => {

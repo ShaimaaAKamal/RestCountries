@@ -6,7 +6,9 @@ export default function MasterLayout() {
   return (
     <>
        <CountryHeader/>
+       <div className='parent'>
        <Outlet></Outlet>
+       </div>
     </>
   )
 }
