@@ -29,3 +29,12 @@ html{
 .textDark{
     color:$darkTextLightElements;
 }
+
+.info{
+    font-size: $homeItemsFontSize;
+    span:nth-child(2){
+        color:$lightModeInput;
+
+    }
+}
+
