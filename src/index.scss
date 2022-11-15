@@ -22,12 +22,12 @@ html{
     color:$lightModeText;
 }
 
-.bgDark{
-    background-color: $darkModeBackground;
+.bgDk{
+    background-color: $darkModeBackground !important;
 }
 
-.textDark{
-    color:$darkTextLightElements;
+.textDk{
+    color:$darkTextLightElements !important;
 }
 
 .header{
