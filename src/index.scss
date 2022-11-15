@@ -74,12 +74,12 @@ html{
     .filter{
         width:25%;
         font-size: $homeItemsFontSize;
+        padding:.9rem;
         &:focus{
             box-shadow: none;
             border-color: #CDD4DA;
-
-        }
-
+        } 
+        
     }
     
 }
