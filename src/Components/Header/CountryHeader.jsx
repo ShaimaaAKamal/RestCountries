@@ -8,11 +8,11 @@ export default function CountryHeader() {
             <h5 className='mb-0'>Where in the world?</h5>
             <div>
               <div id='darkMode' className='d-flex align-items-center'>
-              <i class="fa-regular fa-moon me-1"></i>
+              <i className="fa-regular fa-moon me-1"></i>
               <span>Dark Mode</span>
               </div>
               <div id='lightMode' className='d-none d-flex align-items-center'>
-              <i class="fa-solid fa-moon me-1"></i>
+              <i className="fa-solid fa-moon me-1"></i>
               <span>Dark Mode</span>
               </div>
             </div>

@@ -10,9 +10,7 @@ function App() {
   let routes=createBrowserRouter([{
     path:'',element:<MasterLayout/>,children:[
       {index:true,element: <Home/>},
-      {path:'details',element: <CountryDetails/>},
-      {path:'card',element: <CountryCard/>},
-
+      {path:'details',element: <CountryDetails/>}
     ]
   }])
   return (
