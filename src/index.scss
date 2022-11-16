@@ -16,27 +16,28 @@ html{
     font-family:$fontFamily,sans-serif
 }
 body{
-    background-color: $lightModeBackground !important;   
+    background-color: #FAFAFA !important; 
+    color:  #101517;
 }
 .bgNav{
     background-color: #fff !important;   
 }
 
-.bgLight{
-    background-color: $lightModeBackground !important;
-}
+// .bgLight{
+//     background-color: $lightModeBackground !important;
+// }
 
-.textLight{
-    color:$lightModeText !important;
-}
+// .textLight{
+//     color:#101517 !important;
+// }
 
-.bgDk{
-    background-color: $darkModeBackground !important;
-}
+// .bgDk{
+//     background-color: $darkModeBackground !important;
+// }
 
-.textDk{
-    color:$darkTextLightElements !important;
-}
+// .textDk{
+//     color:$darkTextLightElements !important;
+// }
 
 .header{
     z-index:12;
@@ -56,13 +57,16 @@ body{
     
     .search{
         width:100%;
+        background-color: #fff;
+
         .input-group-text{
+            border:none;
             background-color: transparent;
             color:$lightModeInput
         }
 
         input{
-            border-left:none;
+            border:none;
             padding-bottom: 13px;
             &::placeholder{
                 font-size: $homeItemsFontSize;
@@ -79,6 +83,7 @@ body{
         font-size: $homeItemsFontSize;
         margin-top:1rem;
         padding:.9rem;
+        border:none;
         &:focus{
             box-shadow: none;
             border-color: #CDD4DA;
