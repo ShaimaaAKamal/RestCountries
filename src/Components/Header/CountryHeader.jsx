@@ -7,7 +7,7 @@ export default function CountryHeader() {
 
   const GoHome=()=>{navigate('/')}
   return (
-     <div className='py-3 header shadow-sm bgLight position-fixed w-100'>
+     <div className='py-3 header shadow-sm bgNav position-fixed w-100'>
         <div className="container textLight">
         <div className='d-flex justify-content-between align-items-center'>
             <h5 className='mb-0' onClick={GoHome}>Where in the world?</h5>

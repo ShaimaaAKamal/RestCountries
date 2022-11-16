@@ -11,13 +11,21 @@ $detailPageFontSize:1rem;
 $fontFamily:'Nunito Sans';
 
 
+
 html{
     font-family:$fontFamily,sans-serif
+}
+body{
+    background-color: $lightModeBackground !important;   
+}
+.bgNav{
+    background-color: #fff !important;   
 }
 
 .bgLight{
     background-color: $lightModeBackground !important;
 }
+
 .textLight{
     color:$lightModeText !important;
 }
