@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {useLocation} from 'react-router-dom';
 
 
 export default function CountryDetails() {
   const location=useLocation();
-  const {name,population,region,subregion,capital,flags,currencies,languages,tld,borders}=location.state;
+  const {name,population,region,subregion,capital,flags,currencies,languages,tld,borders}=location.state.country;
   const curriencesKey=Object.keys(currencies);
   const languageKeys=Object.keys(languages);
+  let [countryBorder,setBorders]=useState([]);
   const getCountryObjectData=(keyobj,obj,type)=>{    
   let elements=keyobj.map((key,index)=>{
       return <span className='me-1 spanColor' key={index}>{(type==='currency')?obj[key].name:obj[key]}
@@ -22,6 +23,28 @@ export default function CountryDetails() {
      </span>)
     return elements;
   }
+
+  const getBorderName=()=>{
+     let borderNames=borders.map(border => {
+      let borderName;
+      const index =location.state.countries.findIndex(country => country.cca3===border);
+        borderName=location.state.countries[index].name.common
+      return borderName
+     })
+     return borderNames;
+  }
+
+  useEffect(()=>{
+    async function getBorders(){
+      try{
+        const border=getBorderName()
+        setBorders(border)
+      }catch(e){
+        setBorders([]);
+      }  
+    }
+    getBorders();
+  },[]);
 
   return (
     <div className='container details'>
@@ -57,14 +80,19 @@ export default function CountryDetails() {
             </div>
           </div>
         </div>
-        <div className="mb-1 borders d-flex align-items-center mt-5">
-                <span className='me-2'>Border Countries:</span>
-                <div>
-                  <span className='d-inline-block py-1 px-3 bgLight textLight shadow rounded-1 me-2'>jhiu</span> 
-                  <span className='d-inline-block py-1 px-3 bgLight textLight shadow rounded-1 me-2'>jhiu</span> 
-                  <span className='d-inline-block py-1 px-3 bgLight textLight shadow rounded-1'>jhiu</span> 
-                </div>
-        </div>
+        {
+          (countryBorder.length !== 0)?
+           <div className="mb-1 borders d-flex align-items-center mt-5">
+          <span className='me-2'>Border Countries:</span>
+          <div>
+            {
+              countryBorder.map((bord,index)=>
+              <span className='d-inline-block py-1 px-3 bgLight textLight shadow rounded-1 me-2' key={index}>{bord}</span> 
+              )
+            }
+          </div>
+          </div>:''
+        }
        </div>
      </div>
     </div>

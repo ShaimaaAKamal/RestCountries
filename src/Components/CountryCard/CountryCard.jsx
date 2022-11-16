@@ -4,10 +4,10 @@ import {useNavigate} from 'react-router-dom';
 
 
 export default function CountryCard(props) {
-  const {countryName,population,region,capital,image,country}=props; 
+  const {countryName,population,region,capital,image,country,countries}=props; 
   const navigate=useNavigate()
   const handleCountryClick=(e)=>{
-    navigate('details',{state:country})
+    navigate('details',{state:{country,countries}})
   }
   return (
     <div className="card rounded-0">
