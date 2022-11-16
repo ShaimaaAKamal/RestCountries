@@ -12,7 +12,7 @@ export default function CountryCards(props) {
               const {name,population,region,capital,flags}=country
               const countryName=(name.official.split(' ').length >4)? name.official.split(' ').slice(0,4).join(' '): name.official;
               return(
-                <div className="col-lg-3 col-md-6" key={index}>
+                <div className="col-lg-4 col-xxl-3 col-md-6" key={index}>
                   <CountryCard countries={props.countries} countryName={countryName} population={population} region={region} capital={capital} country={country} image={flags['png']}/>
                 </div>
               )

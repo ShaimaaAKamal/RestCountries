@@ -33,10 +33,6 @@ html{
 .header{
     z-index:12;
 }
-.w-85{
-    width:100%;
-}
-
 
 .parent{
     padding-top:80px;
@@ -104,14 +100,11 @@ html{
 
 
 @media screen and (min-width:768px) {
-    .w-85{
-        width:85%;
-    }
     .parent{
         .card{
             img{
                 height:200px !important;
-                object-fit: cover;
+                // object-fit: cover;
             }
         }
 
