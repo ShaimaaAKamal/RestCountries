@@ -25,10 +25,12 @@ html{
 }
 .bgNav{
     background-color: #fff !important;   
+    color:  #111517 !important;
+
 }
 .bgNavDark{
     background-color:#273845 !important;   
-
+    color:  #fff !important;
 }
 
 .fw-medium{
@@ -38,22 +40,6 @@ html{
 .fs-medium{
     font-size: $homeItemsFontSize;
 }
-
-// .bgLight{
-//     background-color: $lightModeBackground !important;
-// }
-
-// .textLight{
-//     color:#101517 !important;
-// }
-
-// .bgDk{
-//     background-color: $darkModeBackground !important;
-// }
-
-// .textDk{
-//     color:$darkTextLightElements !important;
-// }
 
 .header{
     z-index:12;

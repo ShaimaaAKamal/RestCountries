@@ -2,7 +2,7 @@ export default function handleModeChange(mode,setMode){
     const darkMode=document.querySelector('#darkMode');
     const lightMode=document.querySelector('#lightMode');
     const  bgNavElements=document.querySelectorAll('.changeBack') 
-    // console.log(bgNavElements); 
+    console.log(bgNavElements); 
     
     if(mode === 'dark'){
         lightMode.classList.remove('d-none');

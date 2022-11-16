@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {useLocation,useNavigate} from 'react-router-dom';
+import handleModeChange from '../../js/script';
 
 
-export default function CountryDetails() {
+export default function CountryDetails(props) {
+  let {mode,setMode}=props
   const location=useLocation();
   const navigate=useNavigate();
   const {country,countries}=location.state;
@@ -68,18 +70,23 @@ export default function CountryDetails() {
       }  
     }
     getBorders();
+    (handleModeChange(mode,setMode));
   },[]);
   useEffect(()=>{
     async function getBorders(){
       try{
         const border=getBorderName()
         setBorders(border)
+
       }catch(e){
         setBorders([]);
       }  
     }
     getBorders();
   },[borders]);
+  useEffect(()=>{ 
+    (handleModeChange(mode,setMode));
+  },[mode,countryBorder]);
 
   return (
     <div className='container details'>
