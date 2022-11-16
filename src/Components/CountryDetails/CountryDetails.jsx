@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {useLocation} from 'react-router-dom';
+import {useLocation,useNavigate} from 'react-router-dom';
 
 
 export default function CountryDetails() {
   const location=useLocation();
+  const navigate=useNavigate();
   const {name,population,region,subregion,capital,flags,currencies,languages,tld,borders}=location.state.country;
   const curriencesKey=Object.keys(currencies);
   const languageKeys=Object.keys(languages);
@@ -34,6 +35,10 @@ export default function CountryDetails() {
      return borderNames;
   }
 
+  const handleBack=()=>{
+    navigate(-1);
+  }
+
   useEffect(()=>{
     async function getBorders(){
       try{
@@ -49,21 +54,21 @@ export default function CountryDetails() {
   return (
     <div className='container details'>
     <div>
-      <button className='rounded-1 bg-white shadow-lg textLight'>
+      <button className='rounded-1 bg-white shadow-lg textLight' onClick={handleBack}>
       <i className="fa-solid fa-arrow-left me-2"></i><span>Back</span>
       </button>
     </div>
     <div className='row gy-4 my-5'>
-     <div className="col-md-5">
+     <div className="col-lg-5">
         <div>
           <img src={flags['png']} alt={name.official}  className='w-100 CountryImage'/>
         </div>
      </div>
-     <div className=" offset-md-1 col-md-6 align-self-md-center">
+     <div className=" offset-lg-1 col-lg-6 align-self-md-center">
        <div>
         <h4 className='mb-4 fw-bold'>{name.official}</h4>
         <div className="row gy-4 flex-column flex-md-row">
-          <div className="col-lg-6">
+          <div className="col-md-6">
             <div>
             <p className="mb-1 info"><span>Native Name:</span><span >{name.common}</span></p>
             <p className="mb-1 info"><span>Population:</span><span >{population.toLocaleString({ minimumFractionDigits: 3 })}</span></p>
@@ -72,7 +77,7 @@ export default function CountryDetails() {
             <p className="mb-1 info"><span>Capital:</span>{getCountryArrayData(capital)}</p>
             </div>
           </div>
-          <div className="col-lg-6">
+          <div className="col-md-6">
             <div>
             <p className="mb-1 info"><span>Top Level Domain:</span>{getCountryArrayData(tld)}</p>
             <p className="mb-1 info"><span>Currencies:</span>{getCountryObjectData(curriencesKey,currencies,'currency')}</p>
