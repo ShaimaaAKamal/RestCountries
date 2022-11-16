@@ -5,10 +5,12 @@ import {useLocation,useNavigate} from 'react-router-dom';
 export default function CountryDetails() {
   const location=useLocation();
   const navigate=useNavigate();
-  const {name,population,region,subregion,capital,flags,currencies,languages,tld,borders}=location.state.country;
+  const {country,countries}=location.state;
+  const {name,population,region,subregion,capital,flags,currencies,languages,tld,borders}=country;
   const curriencesKey=Object.keys(currencies);
   const languageKeys=Object.keys(languages);
   let [countryBorder,setBorders]=useState([]);
+
   const getCountryObjectData=(keyobj,obj,type)=>{    
   let elements=keyobj.map((key,index)=>{
       return <span className='me-1 spanColor' key={index}>{(type==='currency')?obj[key].name:obj[key]}
@@ -26,10 +28,12 @@ export default function CountryDetails() {
   }
 
   const getBorderName=()=>{
+   
      let borderNames=borders.map(border => {
       let borderName;
-      const index =location.state.countries.findIndex(country => country.cca3===border);
-        borderName=location.state.countries[index].name.common
+      const index =countries.findIndex(country => {
+        return country.cca3 === border});
+        borderName=countries[index].name.common;
       return borderName
      })
      return borderNames;
@@ -38,7 +42,13 @@ export default function CountryDetails() {
   const handleBack=()=>{
     navigate(-1);
   }
-
+  
+  const goToBorder=(border)=>{
+    console.log(border);
+    const index=countries.findIndex(country => country.name.common===border);
+    const borderCountry=countries[index];
+    navigate('/details',{state:{country:borderCountry,countries}})
+  }
   useEffect(()=>{
     async function getBorders(){
       try{
@@ -50,6 +60,17 @@ export default function CountryDetails() {
     }
     getBorders();
   },[]);
+  useEffect(()=>{
+    async function getBorders(){
+      try{
+        const border=getBorderName()
+        setBorders(border)
+      }catch(e){
+        setBorders([]);
+      }  
+    }
+    getBorders();
+  },[borders]);
 
   return (
     <div className='container details'>
@@ -87,12 +108,12 @@ export default function CountryDetails() {
         </div>
         {
           (countryBorder.length !== 0)?
-           <div className="mb-1 borders d-flex align-items-center mt-5">
-          <span className='me-2'>Border Countries:</span>
+           <div className="mb-1 borders d-flex align-items-md-center flex-column flex-md-row mt-5">
+          <span className='me-2 mb-2 mb-md-0'>Border Countries:</span>
           <div>
             {
               countryBorder.map((bord,index)=>
-              <span className='d-inline-block py-1 px-3 bgLight textLight shadow rounded-1 me-2' key={index}>{bord}</span> 
+              <span className='d-inline-block py-1 px-3 bgLight textLight shadow rounded-1 me-2 mb-1' key={index} onClick={() => goToBorder(bord)}>{bord}</span> 
               )
             }
           </div>

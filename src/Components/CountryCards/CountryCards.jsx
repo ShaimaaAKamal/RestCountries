@@ -2,7 +2,6 @@ import React from 'react'
 import CountryCard from '../CountryCard/CountryCard';
 
 export default function CountryCards(props) {
-  
   return (
     <div className='container  py-5'>
       {(props.countries.length !== 0 )?
@@ -13,7 +12,7 @@ export default function CountryCards(props) {
               const countryName=(name.official.split(' ').length >4)? name.official.split(' ').slice(0,4).join(' '): name.official;
               return(
                 <div className="col-lg-4 col-xxl-3 col-md-6" key={index}>
-                  <CountryCard countries={props.countries} countryName={countryName} population={population} region={region} capital={capital} country={country} image={flags['png']}/>
+                  <CountryCard countries={props.totalCountries} countryName={countryName} population={population} region={region} capital={capital} country={country} image={flags['png']}/>
                 </div>
               )
             })

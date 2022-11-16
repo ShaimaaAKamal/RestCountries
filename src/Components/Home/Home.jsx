@@ -5,6 +5,7 @@ import Filter from '../Filter/Filter'
 
 export default  function Home() {
   let [countries, setCountries] = useState([]);
+  let [totalCountries, setTotalCountries] = useState([]);
   let [regions, setRegions] = useState(new Set());
 
   const handleRegionSelect= async (e)=>{
@@ -35,6 +36,7 @@ export default  function Home() {
     async function getCountries(){
       try{
         countries=await axios.get('https://restcountries.com/v3.1/all');
+        setTotalCountries(countries.data);
         setCountries(countries.data);
         countries.data.forEach(country => {
           if(!regions.has(country.region))regions.add(country.region)
@@ -50,7 +52,7 @@ export default  function Home() {
   return (
     <>
         <Filter regions={regions} handleRegionSelect={handleRegionSelect} handleCountrySearch={handleCountrySearch}/>
-        <CountryCards countries={countries}/> 
+        <CountryCards countries={countries} totalCountries={totalCountries}/> 
     </>
   )
 }
