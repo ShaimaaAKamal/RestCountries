@@ -12,19 +12,29 @@ export default function CountryDetails() {
   let [countryBorder,setBorders]=useState([]);
 
   const getCountryObjectData=(keyobj,obj,type)=>{    
-  let elements=keyobj.map((key,index)=>{
+   try{
+    let elements=keyobj.map((key,index)=>{
       return <span className='me-1 spanColor' key={index}>{(type==='currency')?obj[key].name:obj[key]}
       {(index !== keyobj.length -1)?',':''}
      </span>
      })
      return elements;
+   }
+   catch(e){
+    return [];
+   }
   }
   const getCountryArrayData=(Arr)=>{
-   let elements= Arr.map((key,index) => 
+    try{
+      let elements= Arr.map((key,index) => 
        <span className='me-1 spanColor' key={index}>{key}
       {(index !== Arr.length -1)?',':''}
      </span>)
     return elements;
+    }
+    catch(e){
+      return [];
+    }
   }
 
   const getBorderName=()=>{
@@ -44,7 +54,6 @@ export default function CountryDetails() {
   }
   
   const goToBorder=(border)=>{
-    console.log(border);
     const index=countries.findIndex(country => country.name.common===border);
     const borderCountry=countries[index];
     navigate('/details',{state:{country:borderCountry,countries}})
@@ -95,12 +104,12 @@ export default function CountryDetails() {
             <p className="mb-1 info"><span>Population:</span><span >{population.toLocaleString({ minimumFractionDigits: 3 })}</span></p>
             <p className="mb-1 info"><span>Region:</span><span >{region}</span></p>
             <p className="mb-1 info"><span>Sub Region:</span><span >{subregion}</span></p>
-            <p className="mb-1 info"><span>Capital:</span>{getCountryArrayData(capital)}</p>
+            {(capital !== undefined)?<p className="mb-1 info"><span>Capital:</span>{getCountryArrayData(capital)}</p>:''}
             </div>
           </div>
           <div className="col-md-6">
             <div>
-            <p className="mb-1 info"><span>Top Level Domain:</span>{getCountryArrayData(tld)}</p>
+            {(tld !== undefined)?<p className="mb-1 info"><span>Top Level Domain:</span>{getCountryArrayData(tld)}</p>:''}
             <p className="mb-1 info"><span>Currencies:</span>{getCountryObjectData(curriencesKey,currencies,'currency')}</p>
             <p className="mb-1 info"><span>Languages:</span>{ getCountryObjectData(languageKeys,languages,'languages') }</p>
             </div>
