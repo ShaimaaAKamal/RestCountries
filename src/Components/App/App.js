@@ -10,7 +10,7 @@ import { useState } from 'react';
 function App() {
   let [mode,setMode]=useState('light')
   let routes=createBrowserRouter([{
-    path:'',element:<MasterLayout/>,errorElement:<NotFound/>,children:[
+       path:'',element:<MasterLayout/>,errorElement:<NotFound/>,children:[
       {index:true,element: <Home mode={mode} setMode={setMode}/>},
       {path:'details',element: <CountryDetails mode={mode} setMode={setMode}/>}
     ]
