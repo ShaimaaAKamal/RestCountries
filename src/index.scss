@@ -16,10 +16,10 @@ html{
 }
 
 .bgLight{
-    background-color: $lightModeBackground;
+    background-color: $lightModeBackground !important;
 }
 .textLight{
-    color:$lightModeText;
+    color:$lightModeText !important;
 }
 
 .bgDk{
@@ -33,6 +33,9 @@ html{
 .header{
     z-index:12;
 }
+.w-85{
+    width:100%;
+}
 
 
 .parent{
@@ -44,13 +47,9 @@ html{
             color:$lightModeInput;
         }
     }
-    
-    // .card{
-    //     img{
-    //         height:200px !important;
-    //     }
-    // }
 
+  
+    
     .search{
         width:100%;
         .input-group-text{
@@ -82,12 +81,32 @@ html{
         } 
         
     }
-    
+    button{
+        border:none;
+        padding:.5rem 1rem;
+        font-size: $homeItemsFontSize;
+    }
+   
+    .details{
+        .info,.borders{
+            font-size: $detailPageFontSize;
+        }
+        .borders{
+            div span{
+                font-size: $homeItemsFontSize;
+            }
+        }
+    }
+    .spanColor{
+        color:$lightModeInput
+    }
 }
 
 
 @media screen and (min-width:768px) {
-
+    .w-85{
+        width:85%;
+    }
     .parent{
         .card{
             img{
@@ -96,13 +115,15 @@ html{
             }
         }
 
+       
+
         .search{
             width:40%;}
+
         .filter{
             margin-top:0px;
-            width:25%;
+            width:25%; }
         
-    }
 }
 
 }

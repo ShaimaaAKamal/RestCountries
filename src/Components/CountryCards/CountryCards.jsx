@@ -10,10 +10,10 @@ export default function CountryCards(props) {
           {
             props.countries.map((country,index) => {
               const {name,population,region,capital,flags}=country
-              name.official=(name.official.split(' ').length >4)? name.official.split(' ').slice(0,4).join(' '): name.official;
+              const countryName=(name.official.split(' ').length >4)? name.official.split(' ').slice(0,4).join(' '): name.official;
               return(
                 <div className="col-lg-3 col-md-6" key={index}>
-                  <CountryCard countryName={name.official} population={population} region={region} capital={capital} image={flags['png']}/>
+                  <CountryCard countryName={countryName} population={population} region={region} capital={capital} country={country} image={flags['png']}/>
                 </div>
               )
             })
