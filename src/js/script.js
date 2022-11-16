@@ -5,67 +5,48 @@ export default function handleModeChange(mode,setMode){
     console.log(bgNavElements); 
     
     if(mode === 'dark'){
-        lightMode.classList.remove('d-none');
-        darkMode.classList.add('d-none');
-        document.body.classList.remove('lightElement');
-        document.body.classList.add('darkElement');
-        bgNavElements.forEach(element => {
-            element.classList.remove('bgNav');
-            element.classList.add('bgNavDark')
-        })
-        mode='dark'
-        setMode('dark');
-
+        mode =activateDarkMode(lightMode,darkMode,bgNavElements,setMode)
     }
+    
     else{
-        lightMode.classList.add('d-none');
-        darkMode.classList.remove('d-none');
-        document.body.classList.add('lightElement');
-        document.body.classList.remove('darkElement');
-        bgNavElements.forEach(element => {
-            element.classList.add('bgNav');
-            element.classList.remove('bgNavDark')
-        })
-
-        mode='light'
-        setMode('light');
-
-
+        mode =activateLightMode(lightMode,darkMode,bgNavElements,setMode)
     }
 
     darkMode.addEventListener('click',()=>{
-        lightMode.classList.remove('d-none');
-        darkMode.classList.add('d-none');
-        document.body.classList.remove('lightElement');
-        document.body.classList.add('darkElement');
-        bgNavElements.forEach(element => {
-            element.classList.remove('bgNav');
-            element.classList.add('bgNavDark')
-        })
-
-        mode='dark';
-        setMode('dark');
-
-
+        mode =activateDarkMode(lightMode,darkMode,bgNavElements,setMode)
     })
 
     lightMode.addEventListener('click',()=>{
-        lightMode.classList.add('d-none');
-        darkMode.classList.remove('d-none');
-        document.body.classList.add('lightElement');
-        document.body.classList.remove('darkElement');
-        bgNavElements.forEach(element => {
-            element.classList.add('bgNav');
-            element.classList.remove('bgNavDark')
-        })
+        mode =activateLightMode(lightMode,darkMode,bgNavElements,setMode)
+    })
+    return mode;
+  }
 
-        mode='light';
-        setMode('light');
+  function activateDarkMode(lightMode,darkMode,bgNavElements,setMode){
+    lightMode.classList.remove('d-none');
+    darkMode.classList.add('d-none');
+    document.body.classList.remove('lightElement');
+    document.body.classList.add('darkElement');
+    bgNavElements.forEach(element => {
+        element.classList.remove('bgNav');
+        element.classList.add('bgNavDark')
+    })
+    const mode='dark'
+    setMode('dark');
+    return mode;
+  }
 
+  function activateLightMode(lightMode,darkMode,bgNavElements,setMode){
+    lightMode.classList.add('d-none');
+    darkMode.classList.remove('d-none');
+    document.body.classList.add('lightElement');
+    document.body.classList.remove('darkElement');
+    bgNavElements.forEach(element => {
+        element.classList.add('bgNav');
+        element.classList.remove('bgNavDark')
     })
 
-
-
-    return mode;
-
+    const mode='light';
+    setMode('light');
+    return mode
   }
