@@ -15,12 +15,28 @@ $fontFamily:'Nunito Sans';
 html{
     font-family:$fontFamily,sans-serif
 }
-body{
+.lightElement{
     background-color: #FAFAFA !important; 
-    color:  #101517;
+    color:  #111517 !important;
+}
+.darkElement{
+    background-color: #1D2C37 !important; 
+    color:  #fff !important;
 }
 .bgNav{
     background-color: #fff !important;   
+}
+.bgNavDark{
+    background-color:#273845 !important;   
+
+}
+
+.fw-medium{
+    font-weight:400;
+}
+
+.fs-medium{
+    font-size: $homeItemsFontSize;
 }
 
 // .bgLight{
@@ -48,8 +64,12 @@ body{
 
     .info{
         font-size: $homeItemsFontSize;
+        span:nth-child(1){
+            font-weight:400;
+        }
         span:nth-child(2){
-            color:$lightModeInput;
+            opacity:.6;
+            font-weight:300;
         }
     }
 
@@ -107,7 +127,8 @@ body{
         }
     }
     .spanColor{
-        color:$lightModeInput
+        opacity:.6;
+        font-weight:300;
     }
 }
 

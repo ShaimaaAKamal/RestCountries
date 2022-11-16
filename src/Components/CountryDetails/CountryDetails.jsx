@@ -84,14 +84,14 @@ export default function CountryDetails() {
   return (
     <div className='container details'>
     <div>
-      <button className='rounded-1 bg-white shadow-lg textLight' onClick={handleBack}>
+      <button className='rounded-1 bgNav changeBack shadow-lg' onClick={handleBack}>
       <i className="fa-solid fa-arrow-left me-2"></i><span>Back</span>
       </button>
     </div>
     <div className='row gy-4 my-5'>
      <div className="col-lg-5">
         <div>
-          <img src={flags['png']} alt={name.official}  className='w-100 CountryImage'/>
+          <img src={flags['png']} alt={name.official}  className='w-100 CountryImage shadow'/>
         </div>
      </div>
      <div className=" offset-lg-1 col-lg-6 align-self-md-center">
@@ -118,11 +118,11 @@ export default function CountryDetails() {
         {
           (countryBorder.length !== 0)?
            <div className="mb-1 borders d-flex align-items-md-center flex-column flex-md-row mt-5">
-          <span className='me-2 mb-2 mb-md-0'>Border Countries:</span>
+          <span className='me-2 mb-2 mb-md-0 fw-medium'>Border Countries:</span>
           <div>
             {
               countryBorder.map((bord,index)=>
-              <span className='d-inline-block py-1 px-3 bgLight textLight shadow rounded-1 me-2 mb-1' key={index} onClick={() => goToBorder(bord)}>{bord}</span> 
+              <span className='d-inline-block py-1 px-3 bgNav changeBack fs-medium  shadow-sm rounded-1 me-2 mb-1' key={index} onClick={() => goToBorder(bord)}>{bord}</span> 
               )
             }
           </div>

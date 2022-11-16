@@ -2,8 +2,10 @@ import React , { useEffect,useState}  from 'react'
 import axios from 'axios'
 import CountryCards from '../CountryCards/CountryCards'
 import Filter from '../Filter/Filter'
+import handleModeChange from '../../js/script';
 
-export default  function Home() {
+export default  function Home(props) {
+  let {mode,setMode}=props
   let [countries, setCountries] = useState([]);
   let [totalCountries, setTotalCountries] = useState([]);
   let [regions, setRegions] = useState(new Set());
@@ -33,6 +35,7 @@ export default  function Home() {
   }
 
   useEffect(()=>{
+    // console.log('mount');
     async function getCountries(){
       try{
         countries=await axios.get('https://restcountries.com/v3.1/all');
@@ -47,7 +50,17 @@ export default  function Home() {
       }  
     }
     getCountries();
+     (handleModeChange(mode,setMode));
+    // return ()=>{
+    //   console.log('unmount')
+    // }
   },[]);
+
+  useEffect(()=>{
+    (handleModeChange(mode,setMode));
+  },[countries,mode]);
+
+ 
 
   return (
     <>
