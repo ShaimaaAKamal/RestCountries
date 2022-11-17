@@ -1,9 +1,8 @@
 export default function handleModeChange(mode,setMode){
     const darkMode=document.querySelector('#darkMode');
     const lightMode=document.querySelector('#lightMode');
-    const  bgNavElements=document.querySelectorAll('.changeBack') 
-    console.log(bgNavElements); 
-    
+    const  bgNavElements=document.querySelectorAll('.changeBack')
+   
     if(mode === 'dark'){
         mode =activateDarkMode(lightMode,darkMode,bgNavElements,setMode)
     }
@@ -23,6 +22,7 @@ export default function handleModeChange(mode,setMode){
   }
 
   function activateDarkMode(lightMode,darkMode,bgNavElements,setMode){
+    
     lightMode.classList.remove('d-none');
     darkMode.classList.add('d-none');
     document.body.classList.remove('lightElement');
@@ -50,3 +50,5 @@ export default function handleModeChange(mode,setMode){
     setMode('light');
     return mode
   }
+
+ 

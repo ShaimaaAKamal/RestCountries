@@ -7,12 +7,11 @@ export default function CountryDetails(props) {
   let {mode,setMode}=props
   const location=useLocation();
   const navigate=useNavigate();
-  const {country,countries}=location.state;
+  const {country,countries}=(location.state)
   const {name,population,region,subregion,capital,flags,currencies,languages,tld,borders}=country;
   const curriencesKey=Object.keys(currencies);
   const languageKeys=Object.keys(languages);
   let [countryBorder,setBorders]=useState([]);
-
   const getCountryObjectData=(keyobj,obj,type)=>{    
    try{
     let elements=keyobj.map((key,index)=>{
@@ -69,6 +68,13 @@ export default function CountryDetails(props) {
         setBorders([]);
       }  
     }
+    // if(localStorage.getItem('page')){
+    //   getBorders();
+    // (handleModeChange(mode,setMode))
+    // }
+    // else{
+    //   navigate('');
+    // }
     getBorders();
     (handleModeChange(mode,setMode));
   },[]);
@@ -95,7 +101,9 @@ export default function CountryDetails(props) {
       <i className="fa-solid fa-arrow-left me-2"></i><span>Back</span>
       </button>
     </div>
-    <div className='row gy-4 my-5'>
+     {
+      (country !== undefined)?
+      <div className='row gy-4 my-5'>
      <div className="col-lg-5">
         <div>
           <img src={flags['png']} alt={name.official}  className='w-100 CountryImage shadow'/>
@@ -138,6 +146,8 @@ export default function CountryDetails(props) {
        </div>
      </div>
     </div>
+    :''
+     }
     </div>
   )
 }

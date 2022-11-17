@@ -34,8 +34,7 @@ export default  function Home(props) {
     
   }
 
-  useEffect(()=>{
-    // console.log('mount');
+  useEffect(()=>{   
     async function getCountries(){
       try{
         countries=await axios.get('https://restcountries.com/v3.1/all');
@@ -51,9 +50,7 @@ export default  function Home(props) {
     }
     getCountries();
      (handleModeChange(mode,setMode));
-    // return ()=>{
-    //   console.log('unmount')
-    // }
+    
   },[]);
 
   useEffect(()=>{

@@ -26,7 +26,6 @@ html{
 .bgNav{
     background-color: #fff !important;   
     color:  #111517 !important;
-
 }
 .bgNavDark{
     background-color:#273845 !important;   
@@ -46,7 +45,7 @@ html{
 }
 
 .parent{
-    padding-top:80px;
+    padding-top:100px;
 
     .info{
         font-size: $homeItemsFontSize;
@@ -59,16 +58,13 @@ html{
         }
     }
 
-  
-    
     .search{
         width:100%;
         background-color: #fff;
-
         .input-group-text{
             border:none;
             background-color: transparent;
-            color:$lightModeInput
+            color:inherit
         }
 
         input{
@@ -76,6 +72,8 @@ html{
             padding-bottom: 13px;
             &::placeholder{
                 font-size: $homeItemsFontSize;
+                color:inherit;
+                opacity: .6;
                         }
             &:focus{
                 box-shadow: none;
