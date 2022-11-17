@@ -44,8 +44,14 @@ html{
     z-index:12;
 }
 
+.navWidth{
+    width:90%;
+    margin:0 auto; 
+}
 .parent{
     padding-top:100px;
+    width:90%;
+    margin:0 auto;
 
     .info{
         font-size: $homeItemsFontSize;
@@ -118,7 +124,12 @@ html{
 
 
 @media screen and (min-width:768px) {
+    .navWidth{
+        width:100%;
+    }
+    
     .parent{
+        width:100%;
         .card{
             img{
                 height:200px !important;
