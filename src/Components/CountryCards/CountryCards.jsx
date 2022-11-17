@@ -16,7 +16,7 @@ export default function CountryCards(props) {
               )
             })
           }
-       </div>:<div className="alert bgDk text-center textDk rounded-0 shadow-sm">There is no Countries related to your Search</div>
+       </div>:<div className="alert alert-secondary text-center textDk rounded-0 shadow-sm">There is no Countries related to your Search</div>
 
       }
     </div>
